@@ -1,0 +1,567 @@
+/* REST of the website*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #1c1c1c; /* Dark Grey */
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* NAVBAR */
+nav {
+    background: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 60px;
+    
+    /* Sticky logic */
+    position: sticky; 
+    top: 0;           /* Sticks it to the very top */
+    z-index: 1000;    /* Ensures it stays above the hero image and text */
+}
+
+/* ... existing nav ul li styles ... */
+
+/* ACTIVE PAGE HIGHLIGHT */
+nav ul li.active {
+    background: #ff4d88; /* The same pink as your hover */
+    color: white;
+}
+
+nav h1 {
+    color: #ff4d88;
+}
+
+nav ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+nav ul li {
+    position: relative;
+    padding: 8px 18px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+/* PINK HOVER BACKGROUND */
+nav ul li::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: #ff4d88;
+    border-radius: 25px;
+    transition: width 0.3s ease;
+    z-index: -1;
+}
+
+/* HOVER EFFECT */
+nav ul li:hover::before {
+    width: 100%;
+}
+
+nav ul li:hover {
+    color: white;
+}
+
+/* MAKE LINKS FILL THE BUTTON */
+nav ul li a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+/* HERO */
+.hero {
+    flex: 1; /* THIS is what fills the screen */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+}
+
+/* TEXT */
+.hero-text {
+    max-width: 50%;
+}
+
+.hero-text h4 {
+    color: #ff4d88;
+    margin-bottom: 10px;
+}
+
+.hero-text h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    color: #ccc;
+    margin-bottom: 30px;
+}
+
+/* BUTTONS */
+.btn {
+    padding: 12px 25px;
+    border-radius: 30px;
+    border: none;
+    display: inline-block;
+    text-decoration: none;
+    margin-right: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background: #ff4d88;
+    color: white;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid #ff4d88;
+    color: #ff4d88;
+}
+
+.btn:hover {
+    opacity: 0.7;
+}
+
+/* IMAGE */
+.hero-img img {
+    width: 420px;
+    border-radius: 10px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.6);
+}
+
+/* RESPONSIVE */
+@media(max-width: 900px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text {
+        max-width: 100%;
+    }
+
+    .hero-img img {
+        width: 300px;
+        margin-top: 30px;
+    }
+}
+
+/* FOOTER */
+footer {
+    background: #000;
+    padding: 10px 0;
+    text-align: center;
+    margin-top: auto; /* Pushes footer to the bottom */
+}
+
+/* ICON CONTAINER */
+.socials {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+/* ICON STYLE */
+.socials a {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1c1c1c;
+    border-radius: 50%;
+    color: #ccc;
+    font-size: 20px;
+    display: flex;
+    
+
+    transition: all 0.3s ease;
+}
+
+/* HOVER EFFECT */
+.socials a:hover {
+    background: #ff4d88; /* Pink */
+    color: white;
+    transform: scale(1.1);
+}
+
+/* COPYRIGHT */
+footer p {
+    margin-top: 20px;
+    color: #777;
+    font-size: 13px;
+}
+
+/* SERVICES.html Page ////////////////////*/
+.services {
+    padding: 10px;
+    text-align: center;
+}
+
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    gap: 25px;
+    justify-items: center; /* centers cards nicely */
+}
+
+.card {
+    background: rgba(177, 129, 129, 0.1);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 15px;
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
+    padding: 20px;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+/* IMAGE */
+.card img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+/* TITLE */
+.card h2 {
+    color: #ffffff;
+    font-size: 18px;
+}
+
+/* DESCRIPTION */
+.card p {
+    font-size: 14px;
+    color: #818181;
+    margin: 10px 0;
+}
+
+/* PRICE */
+.card h3 {
+    color: #ff4d88;
+    margin-bottom: 10px;
+}
+
+/* BUTTON */
+.book-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: #ff4d88;
+    color: white;
+    cursor: pointer;
+}
+
+
+/* GALLERY.html Page /////////////////////*/
+.gallery {
+    padding: 60px;
+    text-align: center;
+}
+
+/* CONTAINER */
+.scroll-container {
+    overflow: hidden;
+    width: 100%;
+    margin-top: 30px;
+}
+
+/* PAUSE ANIMATION ON HOVER */
+.scroll-container:hover .scroll-track {
+    animation-play-state: paused;
+}
+
+/* TRACK */
+.scroll-track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+
+    animation: scroll 20s linear infinite;
+}
+
+/* IMAGES */
+.scroll-track img {
+    width: 250px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+/* ANIMATION */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Feedback.html Page /////////////////////////*/
+.feedback {
+    flex: 1;
+    padding: 60px;
+    text-align: center;
+}
+
+/* GRID */
+.Feedback-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+}
+
+/* CARD */
+.Feedback-card {
+    background: #000;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.Feedback-card:hover {
+    transform: translateY(-10px);
+}
+
+/* PROFILE IMAGE */
+.Feedback-card img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+/* NAME */
+.Feedback-card h3 {
+    margin-bottom: 5px;
+}
+
+/* STARS */
+.stars {
+    color: #ff4d88;
+    margin-bottom: 10px;
+}
+
+/* TEXT */
+.Feedback-card p {
+    font-size: 14px;
+    color: #ccc;
+}
+
+/* CONTACTS.html Page ///////////////////*/
+.contact {
+    flex: 1; /* pushes footer down */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 60px;
+    overflow: hidden; /* prevents scroll */
+}
+
+/* IMAGE SIDE */
+.contact-img {
+    flex: 1;
+}
+
+.contact-img img {
+    width: 90%;
+    height: 80%;
+    object-fit: cover;
+}
+
+/* FORM SIDE */
+.contact-form {
+    flex: 1;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-form h1 {
+    color: #ff4d88;
+    margin-bottom: 10px;
+}
+
+.contact-form p {
+    color: #ccc;
+    margin-bottom: 30px;
+}
+
+/* FORM */
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+}
+
+/* TEXTAREA HEIGHT */
+.contact-form textarea {
+    height: 120px;
+}
+
+/* WHATSAPP BUTTON */
+.whatsapp-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #25D366; /* WhatsApp green */
+    color: white;
+    padding: 12px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+
+    transition: 0.3s;
+}
+
+.whatsapp-btn:hover {
+    background: #1ebe5d;
+    transform: scale(1.03);
+}
+
+/* RESPONSIVE */
+@media(max-width: 900px) {
+    .contact {
+        flex-direction: column;
+    }
+
+    .contact-img {
+        height: 250px;
+    }
+
+    .contact-form {
+        padding: 30px;
+ 
+    }
+}
+
+/* ABOUT.html Page ///////////////*/
+.about-hero {
+    flex: 1;
+    padding: 30px 60px;
+}
+
+/* ABOUT SECTION */
+.about-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    padding: 40px 60px;
+}
+
+/* FADE SLIDER */
+.fade-slider {
+    position: relative;
+    width: 400px;
+    height: 450px;
+}
+
+/* IMAGES STACKED */
+.fade-slider img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    opacity: 0;
+
+    animation: fade 12s infinite;
+}
+
+/* EACH IMAGE DELAY */
+.fade-slider img:nth-child(1) {
+    animation-delay: 0s;
+}
+.fade-slider img:nth-child(2) {
+    animation-delay: 4s;
+}
+.fade-slider img:nth-child(3) {
+    animation-delay: 8s;
+}
+
+/* FADE ANIMATION */
+@keyframes fade {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    30% { opacity: 1; }
+    40% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* CARDS */
+.about-card {
+    background: #000;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.about-card:hover {
+    transform: translateY(-10px);
+}
+
+/* ICONS */
+.about-card i {
+    font-size: 30px;
+    color: #ff4d88;
+    margin-bottom: 15px;
+}
+
+/* TEXT */
+.about-card h2 {
+    margin-bottom: 10px;
+}
+
+.about-card p {
+    color: #ccc;
+    font-size: 14px;
+}
+
+/* RESPONSIVE */
+@media(max-width: 900px) {
+    .about-section {
+        grid-template-columns: 1fr;
+    }
+}
